@@ -8,15 +8,27 @@ export class LoginService {
 
 
   signIn(nusername: String, npassword: String){
+<<<<<<< HEAD
+=======
+=======
+  signin: any[];
+  signout: any[];
+
+  username: string;
+  authenticate: boolean;
+
+  signIn(nusername: string, npassword: string) {
+>>>>>>> 4d344f42d3808f7d821139ae550c5982e36e72ca
+>>>>>>> 37a91a3821ff8dd63cc6e4b37c5d74a89679e52c
     var body = {
       username: nusername,
       password: npassword
     }
     console.log(URL);
-    return this.http.post("/api/sign_in", body);
+    return this.http.post("/api/sign_in", body).map(res => res.json());
   }
 
-  singUp(nusername: string, npassword: string, nemail: string, nname: string){
+  signUp(nusername: string, npassword: string, nemail: string, nname: string){
     var body = {
       username: nusername,
       password: npassword,
@@ -24,5 +36,13 @@ export class LoginService {
       name: nname
     }
     return this.http.post("/api/create_user", body);
+  }
+
+  isAuthenticated(user: string): boolean{
+    if (user == this.username){
+      return true;
+    } else {
+      return false;
+    }
   }
 }
