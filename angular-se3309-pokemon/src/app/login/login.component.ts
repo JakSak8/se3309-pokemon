@@ -11,34 +11,30 @@ import 'rxjs/add/operator/map'
 })
 export class LoginComponent implements OnInit {
 
+  signin: any[];
+  signinData: any[];
+  signout: any[];
+  signoutData: any[];
+
   constructor(private loginService: LoginService, http: Http) { }
 
   ngOnInit() {
   }
 
-<<<<<<< HEAD
-  signIn(){
-     //this.loginService.signIn().map(res => res.json());
-=======
-
 
   signIn(user: string, pass: string){
     this.loginService.signIn(user, pass).subscribe(
-      data => this.signInConfirmed(data),
+      //ata => this.signInConfirmed(data),
+      data => console.log(data),
       err => console.log(err),
     );
   }
 
-  signInConfirmed(data){
-    this.imageName = [];
-    this.imageData = data.collection.items;
-    for (var i = 0; i < this.imageData.length; i++){
-      this.images.push(this.imageData[i].links[0].href);
-      this.imageName.push(this.imageData[i].data[0].title);
-    };
->>>>>>> 2fef876a8777415f4609ef702a6498d1fdb1243c
-  }
-
-  
-
+  // signInConfirmed(data){
+  //   if data.[1] == true;
+  //   for (var i = 0; i < this.imageData.length; i++){
+  //     this.images.push(this.imageData[i].links[0].href);
+  //     this.imageName.push(this.imageData[i].data[0].title);
+  //   };
+  // }
 }
