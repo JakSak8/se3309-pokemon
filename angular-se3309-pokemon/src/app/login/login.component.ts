@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
     );
   }
 
+
   signInConfirmed(data, username: string){
     console.log(data);
     this.signin = data.user;

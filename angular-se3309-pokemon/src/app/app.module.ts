@@ -6,6 +6,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { PokemonComponent } from './pokemon/pokemon.component';
+import { TeamComponent } from './team/team.component';
 import { HomeComponent } from './home/home.component';
 
 
@@ -15,6 +16,7 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     LoginComponent,
     PokemonComponent,
+    TeamComponent,
     HomeComponent,
   ],
   imports: [

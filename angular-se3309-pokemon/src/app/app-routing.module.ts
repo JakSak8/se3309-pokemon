@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'pokemon', component: PokemonComponent },
   { path: 'team', component: TeamComponent },
+  { path: 'home', component: HomeComponent}
 ]
 
 @NgModule({
