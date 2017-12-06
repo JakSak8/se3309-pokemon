@@ -11,8 +11,6 @@ import 'rxjs/add/operator/map'
 })
 export class PokemonComponent implements OnInit {
 
-  private url = 'http://localhost:8081/api/';
-
   constructor(private http: Http, private pokemonService: PokemonService) { }
 
   ngOnInit() {
@@ -24,11 +22,10 @@ export class PokemonComponent implements OnInit {
       err => console.log(err),
     );
     
-
   }
 
   SearchPokemonType(pokeType:string){
-    return this.pokemonService.SearchPokemonName(pokeType).subscribe(
+    return this.pokemonService.SearchPokemonType(pokeType).subscribe(
       data => console.log(data),
       err => console.log(err),
     );
