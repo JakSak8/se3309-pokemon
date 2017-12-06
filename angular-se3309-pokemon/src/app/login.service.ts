@@ -7,23 +7,27 @@ export class LoginService {
 
   constructor(private http: Http) { }
 
-  const URL = "http//localhost:8081/api/";
+  private URL = "http//localhost:8081/api/";
 
-  signIn(){
-    var body = { nusername: String, npassword: String){
+  signin;
+  signout;
+
+
+  signIn(nusername: string, npassword: string) {
+    var body = {
       username: nusername,
       password: npassword
     }
-    return this.http.post('url', body);
+    return this.http.post(this.URL, body);
   }
 
-  singUp(nusername: String, npassword: String, nemail: String, nname: String){
+  singUp(nusername: string, npassword: string, nemail: string, nname: string){
     var body = {
       username: nusername,
       password: npassword,
       email: nemail,
       name: nname
     }
-    return this.http.post('url', body);
+    return this.http.post(this.URL, body);
   }
 }
