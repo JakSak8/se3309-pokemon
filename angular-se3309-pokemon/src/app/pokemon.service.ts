@@ -1,27 +1,34 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PokemonService {
 
-  private url = 'http://localhost:8081/api/';
-
   constructor(private http: Http) { }
+ 
+  /*
+  headerDict ={
+    'Content-Type': 'application/x-www-form-urlencoded',
+  };
+
+  requestOptions = {
+    headers: new Headers(this.headerDict),
+  };
+  */
 
   SearchPokemonName(pokemonName:string) {
-    console.log('Name');
     var body = {
       pokeName: pokemonName
     }
-    return this.http.post(this.url + "pokemon_name" , body );
+    return this.http.post("/api/pokemon_name", body).map(res=>res.json());
   }
 
   SearchPokemonType(pokeType:string) {
-    console.log('Type');
     var body = {
       typeName: pokeType
     }
-    return this.http.post(this.url + "pokemon_type", body);
+    return this.http.post("/api/pokemon_type", body).map(res=>res.json());
   }
 
 }

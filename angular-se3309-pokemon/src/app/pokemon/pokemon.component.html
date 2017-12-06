@@ -4,8 +4,34 @@
   Pokemon Name: <input type="text" #pokemonName />
   <button (click)="SearchPokemonName(pokemonName.value)">Search</button>
 </div>
+
 <div>
   <h4>Search by Pokemon Type</h4>
   Pokemon Type: <input type="text" #pokeType />
   <button (click)="SearchPokemonType(pokeType.value)">Search</button>
 </div>
+<br><br>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Number</th>
+    <th>Type</th>
+    <th>Hit Points</th>
+    <th>Attack</th>
+    <th>Defense</th>
+    <th>Special Attack</th>
+    <th>Special Defense</th>
+    <th>Speed</th>
+  </tr>
+  <tr *ngFor="let pokemon of pokemons">
+    <td>{{pokemon.pokeName}}</td>
+    <td>{{pokemon.pokeNumber}}</td>
+    <td>{{pokemon.typeName}}</td>
+    <td>{{pokemon.hitPoints}}</td>
+    <td>{{pokemon.attack}}</td>
+    <td>{{pokemon.defense}}</td>
+    <td>{{pokemon.specialAttack}}</td>
+    <td>{{pokemon.specialDefense}}</td>
+    <td>{{pokemon.speed}}</td>
+  </tr>
+</table>
