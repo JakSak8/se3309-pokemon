@@ -3,10 +3,21 @@
     Welcome to Pokemon Team Creator
   </h1>
 
-  <h2>Sign In</h2>
-  Username: <input type:"text" name:"username" #username>
-  Password: <input type:"password" name:"password" #password>
-  <button id="signIn" (click)="signIn()">Sign In</button>
   
-
+  <h2>Sign In</h2>
+  <div class="container">
+  Username: <input  #username> <br>
+  Password: <input  #password> <br>
+  <button id="signIn" (click)="signIn()">Sign In</button>
+  </div>
+  
+  <h2> Sign Up </h2>
+  <div class="container">
+  Username: <input #nUsername> <br>
+  Password: <input #npassword> <br>
+  Name:     <input #name> <br>
+  Email:    <input #email> <br>
+  <button id="signup" (click)="signUp()">Sign Up</button>
+  </div>
+  <link href="https://fonts.googleapis.com/css?family=Quantico" rel="stylesheet">
 </body>
