@@ -1,19 +1,21 @@
 import { Component } from '@angular/core';
-import { LoginService } from './login.service';
+import { UsernameService } from './username.service';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [LoginService]
+  providers: [UsernameService]
 })
 export class AppComponent {
   title = 'app';
 
-  constructor(private loginService: LoginService){}
+  constructor(private usernameService: UsernameService){}
 
-  isAuthenticated(): boolean{
-    if (this.loginService.authenticate == true){
+  isAuthenticated(): Boolean{
+    console.log(this.usernameService.getAuthentication());
+    if (this.usernameService.getAuthentication() == true){
       return true;
     } else {
       return false;

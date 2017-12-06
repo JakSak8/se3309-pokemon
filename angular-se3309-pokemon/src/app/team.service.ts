@@ -5,4 +5,8 @@ export class TeamService {
 
   constructor() { }
 
+
+  getTeam(user: string){
+    
+  }
 }

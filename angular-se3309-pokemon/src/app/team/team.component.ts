@@ -16,7 +16,7 @@ export class TeamComponent implements OnInit {
   ngOnInit() {
   }
 
-  GetTeams(){
+  GetTeams(user: string){
     
   }
 

@@ -3,12 +3,13 @@ import { LoginService } from '../login.service';
 import { Http } from '@angular/http'
 import {Router} from '@angular/router'
 import 'rxjs/add/operator/map'
+import { UsernameService } from '../username.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [LoginService]
+  providers: [LoginService, UsernameService]
 })
 export class LoginComponent implements OnInit {
 
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
   signout: any[];
   signoutData: any[];
 
-  constructor(private loginService: LoginService, http: Http, private router: Router) { }
+  constructor(private loginService: LoginService, http: Http, private router: Router, private usernameService: UsernameService) { }
 
   ngOnInit() {
   }
@@ -36,10 +37,9 @@ export class LoginComponent implements OnInit {
   signInConfirmed(data, username: string){
     console.log(data);
     this.signin = data.user;
-    console.log(this.signin[0].length != 0);
     if (this.signin[0].length != 0) {
-      this.loginService.authenticate = true;
-      this.loginService.username = username;
+      this.usernameService.setAuthentication(true);
+      this.usernameService.setUserName(username);
       return this.router.navigate(['../home'])
     } else {
       alert("please create an account");

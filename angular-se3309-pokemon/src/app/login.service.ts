@@ -9,8 +9,6 @@ export class LoginService {
   signin: any[];
   signout: any[];
 
-  username: string;
-  authenticate: boolean;
 
   signIn(nusername: string, npassword: string) {
     var body = {
@@ -31,11 +29,5 @@ export class LoginService {
     return this.http.post("/api/create_user", body);
   }
 
-  isAuthenticated(user: string): boolean{
-    if (user == this.username){
-      return true;
-    } else {
-      return false;
-    }
-  }
+ 
 }
