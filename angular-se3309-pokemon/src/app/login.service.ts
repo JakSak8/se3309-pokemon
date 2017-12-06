@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 import { Http, Headers } from '@angular/http';
 
 @Injectable()
@@ -7,10 +6,10 @@ export class LoginService {
 
   constructor(private http: Http) { }
 
-  const URL = "http//localhost:8081/api/";
+  private URL = "http//localhost:8081/api/";
 
-  signIn(){
-    var body = { nusername: String, npassword: String){
+  signIn(nusername: String, npassword: String){
+    var body = {
       username: nusername,
       password: npassword
     }

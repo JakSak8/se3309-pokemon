@@ -8,20 +8,20 @@ export class PokemonService {
 
   constructor(private http: Http) { }
 
-  SearchPokemonName() {
+  SearchPokemonName(pokemonName:string) {
     console.log('Name');
-      this.http.get(this.url + "/").subscribe(data => {
-        console.log(data);
-        return data; 
-      });
+    var body = {
+      pokeName: pokemonName
+    }
+    return this.http.post(this.url + "/" + pokemonName, body );
   }
 
-  SearchPokemonType() {
+  SearchPokemonType(pokeType:string) {
     console.log('Type');
-      this.http.get(this.url + "/").subscribe(data => {
-        console.log(data);
-        return data; 
-      });
+    var body = {
+      typeName: pokeType
+    }
+    return this.http.post(this.url + "/" + pokeType, body);
   }
 
 }

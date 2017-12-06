@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Http, Headers } from '@angular/http';
+import { PokemonService } from '../pokemon.service';
+import 'rxjs/add/operator/map'
 
 @Component({
   selector: 'app-pokemon',
@@ -7,17 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokemonComponent implements OnInit {
 
-  constructor() { }
+  private url = 'http://localhost:8081/api/';
+
+  constructor(private http: Http, private pokemonService: PokemonService) { }
 
   ngOnInit() {
   }
 
-  SearchPokemonName(pokeName:string){
-    alert(pokeName);
+  SearchPokemonName(pokemonName:string){
+    return this.pokemonService.SearchPokemonName(pokemonName).subscribe(
+      data => console.log(data),
+      err => console.log(err),
+    );
+    
+
   }
 
   SearchPokemonType(pokeType:string){
-    alert(pokeType);
+    return this.pokemonService.SearchPokemonName(pokeType).subscribe(
+      data => console.log(data),
+      err => console.log(err),
+    );
   }
 
 }
