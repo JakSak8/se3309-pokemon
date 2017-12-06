@@ -19,10 +19,10 @@ export class LoginService {
       password: npassword
     }
     console.log(URL);
-    return this.http.post("/api/sign_in", body);
+    return this.http.post("/api/sign_in", body).map(res => res.json());
   }
 
-  singUp(nusername: string, npassword: string, nemail: string, nname: string){
+  signUp(nusername: string, npassword: string, nemail: string, nname: string){
     var body = {
       username: nusername,
       password: npassword,
