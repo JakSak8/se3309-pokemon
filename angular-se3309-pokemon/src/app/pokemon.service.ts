@@ -13,7 +13,7 @@ export class PokemonService {
     var body = {
       pokeName: pokemonName
     }
-    return this.http.post(this.url + pokemonName, body );
+    return this.http.post(this.url + "pokemon_name" , body );
   }
 
   SearchPokemonType(pokeType:string) {
@@ -21,7 +21,7 @@ export class PokemonService {
     var body = {
       typeName: pokeType
     }
-    return this.http.post(this.url + pokeType, body);
+    return this.http.post(this.url + "pokemon_type", body);
   }
 
 }

@@ -21,10 +21,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 4d344f42d3808f7d821139ae550c5982e36e72ca
   signIn(user: string, pass: string){
     this.loginService.signIn(user, pass).subscribe(
       //ata => this.signInConfirmed(data),
@@ -33,7 +29,6 @@ export class LoginComponent implements OnInit {
     );
   }
 
-<<<<<<< HEAD
   signInConfirmed(data){
     // this.imageName = [];
     // this.imageData = data.collection.items;
@@ -45,13 +40,4 @@ export class LoginComponent implements OnInit {
 
   
 
-=======
-  // signInConfirmed(data){
-  //   if data.[1] == true;
-  //   for (var i = 0; i < this.imageData.length; i++){
-  //     this.images.push(this.imageData[i].links[0].href);
-  //     this.imageName.push(this.imageData[i].data[0].title);
-  //   };
-  // }
->>>>>>> 4d344f42d3808f7d821139ae550c5982e36e72ca
 }
