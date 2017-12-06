@@ -6,11 +6,6 @@ export class LoginService {
 
   constructor(private http: Http) { }
 
-
-  signIn(nusername: String, npassword: String){
-<<<<<<< HEAD
-=======
-=======
   signin: any[];
   signout: any[];
 
@@ -18,8 +13,6 @@ export class LoginService {
   authenticate: boolean;
 
   signIn(nusername: string, npassword: string) {
->>>>>>> 4d344f42d3808f7d821139ae550c5982e36e72ca
->>>>>>> 37a91a3821ff8dd63cc6e4b37c5d74a89679e52c
     var body = {
       username: nusername,
       password: npassword
