@@ -57,5 +57,4 @@ export class LoginComponent implements OnInit {
   signupConfirmed(data){
     alert("successful sign up, please sign in to continue");
   }
-
 }

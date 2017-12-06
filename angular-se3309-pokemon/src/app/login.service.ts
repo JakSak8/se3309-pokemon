@@ -6,9 +6,6 @@ export class LoginService {
 
   constructor(private http: Http) { }
 
-
-  signIn(nusername: String, npassword: String){
-
   signin: any[];
   signout: any[];
 
@@ -16,7 +13,6 @@ export class LoginService {
   authenticate: boolean;
 
   signIn(nusername: string, npassword: string) {
-
     var body = {
       username: nusername,
       password: npassword

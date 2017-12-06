@@ -4,8 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
 import { PokemonComponent } from './pokemon/pokemon.component';
-import { TeamComponent } from './team/team.component';
 import { HomeComponent } from './home/home.component';
+import { TeamComponent } from './team/team.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
