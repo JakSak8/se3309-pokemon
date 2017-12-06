@@ -106,6 +106,20 @@ router.route('/show_teams')
 
     });
 
+router.route('/pokemon')
+    .get(function(req, res) {
+        var q = "SELECT * FROM pokemon";
+        console.log(q);
+        connection.query(q , function(err, rows, fields) {
+            if (!err){
+                res.json({pokemon: rows});
+            }
+            else
+                res.json({error: 'Error while performing Query.'});
+        });
+
+    });
+
 
 router.route('/pokemon_name')
     .post(function(req, res) {
@@ -181,6 +195,10 @@ Haven’t been able to make it error. If the array is full you have teams and po
 Change Team Name - PUT - api/update_team
 Args=[teamID, teamName]
 Returns sql update info
+
+Get Pokemon - GET - api/pokemon
+Args=[]
+Returns full pokemon list
 
 Get Pokemon by Name - POST - api/pokemon_name
 Args=[pokeName]
