@@ -75,7 +75,20 @@ router.route('/create_team')
             else
                 res.json({error: 'Error while performing Query.'});
         });
-        console.log(res);
+
+    });
+
+router.route('/update_team')
+    .put(function(req, res) {
+        var q = "UPDATE team SET teamName = '"+ req.body.teamName +"' WHERE teamID="+req.body.teamID;
+        console.log(q);
+        connection.query(q , function(err, rows, fields) {
+            if (!err){
+                res.json({team: rows});
+            }
+            else
+                res.json({error: 'Error while performing Query.'});
+        });
 
     });
 
@@ -90,7 +103,6 @@ router.route('/show_teams')
             else
                 res.json({error: 'Error while performing Query.'});
         });
-        console.log(res);
 
     });
 
@@ -124,7 +136,19 @@ router.route('/pokemon_type')
 
     });
 
+router.route('/mypokemon_create')
+    .post(function(req, res) {
+        var q = "INSERT INTO myPokemon (pokeName, teamID) VALUES('"+req.body.pokeName+"', '"+req.body.teamID + "')";
+        console.log(q);
+        connection.query(q , function(err, rows, fields) {
+            if (!err){
+                res.json({pokemon: rows});
+            }
+            else
+                res.json({error: 'Error while performing Query.'});
+        });
 
+    });
 
 
 app.use('/api', router);
@@ -154,6 +178,10 @@ Show Teams – POST – api/show_teams
 Args=[username]
 Haven’t been able to make it error. If the array is full you have teams and pokemon to show. Otherwise its blank, even for an imaginary user.
 
+Change Team Name - PUT - api/update_team
+Args=[teamID, teamName]
+Returns sql update info
+
 Get Pokemon by Name - POST - api/pokemon_name
 Args=[pokeName]
 Returns empty array if pokeName doesn't exist.
@@ -161,6 +189,10 @@ Returns empty array if pokeName doesn't exist.
 Get Pokemon by Type - POST - api/pokemon_type
 Args=[typeName]
 Returns empty array if type doesnt exist
+
+Create MyPokemon - POST - api/mypokemon_create
+Args=[pokeName, teamID]
+Returns sql updated information
 
 
 
