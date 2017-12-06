@@ -16,12 +16,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-<<<<<<< HEAD
-  signIn(){
-     //this.loginService.signIn().map(res => res.json());
-=======
-
-
   signIn(user: string, pass: string){
     this.loginService.signIn(user, pass).subscribe(
       data => this.signInConfirmed(data),
@@ -30,13 +24,12 @@ export class LoginComponent implements OnInit {
   }
 
   signInConfirmed(data){
-    this.imageName = [];
-    this.imageData = data.collection.items;
-    for (var i = 0; i < this.imageData.length; i++){
-      this.images.push(this.imageData[i].links[0].href);
-      this.imageName.push(this.imageData[i].data[0].title);
-    };
->>>>>>> 2fef876a8777415f4609ef702a6498d1fdb1243c
+    // this.imageName = [];
+    // this.imageData = data.collection.items;
+    // for (var i = 0; i < this.imageData.length; i++){
+    //   this.images.push(this.imageData[i].links[0].href);
+    //   this.imageName.push(this.imageData[i].data[0].title);
+   // };
   }
 
   

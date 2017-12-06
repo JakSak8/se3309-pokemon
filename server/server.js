@@ -75,6 +75,7 @@ router.route('/create_team')
             else
                 res.json({error: 'Error while performing Query.'});
         });
+        console.log(res);
 
     });
 
@@ -89,6 +90,7 @@ router.route('/show_teams')
             else
                 res.json({error: 'Error while performing Query.'});
         });
+        console.log(res);
 
     });
 
