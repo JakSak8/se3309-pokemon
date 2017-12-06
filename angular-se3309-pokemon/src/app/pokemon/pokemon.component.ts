@@ -32,7 +32,6 @@ export class PokemonComponent implements OnInit {
   SearchPokemonName(pokemonName:string){
     return this.pokemonService.SearchPokemonName(pokemonName).subscribe(
       data => this.displayPokemon(data),
-      //data => console.log(data),
       err => console.log(err),
     );
     

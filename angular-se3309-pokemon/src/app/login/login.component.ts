@@ -32,34 +32,7 @@ export class LoginComponent implements OnInit {
     );
   }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 37a91a3821ff8dd63cc6e4b37c5d74a89679e52c
-  signInConfirmed(data){
-    // this.imageName = [];
-    // this.imageData = data.collection.items;
-    // for (var i = 0; i < this.imageData.length; i++){
-    //   this.images.push(this.imageData[i].links[0].href);
-    //   this.imageName.push(this.imageData[i].data[0].title);
-   // };
-  }
 
-  
-
-<<<<<<< HEAD
-=======
-=======
-  // signInConfirmed(data){
-  //   if data.[1] == true;
-  //   for (var i = 0; i < this.imageData.length; i++){
-  //     this.images.push(this.imageData[i].links[0].href);
-  //     this.imageName.push(this.imageData[i].data[0].title);
-  //   };
-  // }
->>>>>>> 4d344f42d3808f7d821139ae550c5982e36e72ca
-=======
   signInConfirmed(data, username: string){
     console.log(data);
     this.signin = data.user;
@@ -84,6 +57,5 @@ export class LoginComponent implements OnInit {
   signupConfirmed(data){
     alert("successful sign up, please sign in to continue");
   }
->>>>>>> jsakon
->>>>>>> 37a91a3821ff8dd63cc6e4b37c5d74a89679e52c
+
 }

@@ -8,7 +8,15 @@ export class LoginService {
 
 
   signIn(nusername: String, npassword: String){
->>>>>>> 37a91a3821ff8dd63cc6e4b37c5d74a89679e52c
+
+  signin: any[];
+  signout: any[];
+
+  username: string;
+  authenticate: boolean;
+
+  signIn(nusername: string, npassword: string) {
+
     var body = {
       username: nusername,
       password: npassword
