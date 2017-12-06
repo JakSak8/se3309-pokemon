@@ -11,13 +11,38 @@ import 'rxjs/add/operator/map'
 })
 export class TeamComponent implements OnInit {
 
+  teams: any[];
+
+  pokeID: any[];
+  pokeName: any[];
+  teamID: any[];
+
   constructor(private http: Http, private teamService: TeamService) { }
 
   ngOnInit() {
   }
 
+  CreateTeam(teamName:string){
+    return this.teamService.CreateTeam(teamName).subscribe(
+      data => this.CreateTeamConfirm(data),
+      err => console.log(err),
+    );
+  
+  }
+
+  CreateTeamConfirm(data){
+    alert("Your team has been created!");
+  }
+
   GetTeams(){
-    
+    return this.teamService.GetTeams().subscribe(
+      data => this.ShowTeams(data),
+      err => console.log(err),
+    );
+  }
+
+  ShowTeams(data){
+    this.teams = data.team;
   }
 
 }
