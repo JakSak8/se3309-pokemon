@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 
+//Constants I will be using within method calls
+export const USER_NAME: string = 'username';
+export const AUTH: string = 'authentication';
+
 @Injectable()
 export class UsernameService {
 
@@ -7,23 +11,33 @@ export class UsernameService {
 
   private username: String;
   private authenticate: Boolean;
-
+  
+  
+  
+  //Changed below methods to use local storage.
   setAuthentication(auth: Boolean){
-    this.authenticate = auth;
-    console.log(this.authenticate);
+      localStorage.setItem(AUTH, auth);
   }
 
   getAuthentication(){
-    console.log(this.authenticate);
-    return this.authenticate;
+    return localStorage.getItem(AUTH);
   }
-
+  
   setUserName(name: String){
-    this.username = name;
-    console.log(this.username);
+    localStorage.setItem(USER_NAME, user);
   }
 
   getUserName(){
-    return this.username;
+    return localStorage.getItem(USER_NAME);
   }
+  
+  
+  //Would recommend scrapping Authentication Methods and just checking if username exists, on logout remove username.
+  logout(){
+    return localStorage.removeItem(USER_NAME);
+  }
+  
+  
+  
+  
 }
