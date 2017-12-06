@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 
+//This is a constant I will be using within method calls
+export const USER_NAME: string = 'username';
+
+
 @Injectable()
 export class LoginService {
 
@@ -8,7 +12,14 @@ export class LoginService {
 
   signin: any[];
   signout: any[];
-
+  
+  //Use a get and set to access local storage
+  getUser(): string {
+    return localStorage.getItem(USER_NAME);
+  }
+  setUser(user: string): void {
+    localStorage.setItem(USER_NAME, user);
+  }
 
   signIn(nusername: string, npassword: string) {
     var body = {
