@@ -78,6 +78,20 @@ router.route('/create_team')
 
     });
 
+router.route('/update_team')
+    .put(function(req, res) {
+        var q = "UPDATE team SET teamName = '"+ req.body.teamName +"' WHERE teamID="+req.body.teamID;
+        console.log(q);
+        connection.query(q , function(err, rows, fields) {
+            if (!err){
+                res.json({team: rows});
+            }
+            else
+                res.json({error: 'Error while performing Query.'});
+        });
+
+    });
+
 router.route('/show_teams')
     .post(function(req, res) {
         var q = "SELECT myPokemon.* FROM myPokemon JOIN team ON myPokemon.teamID=team.teamID WHERE team.userID = '" +req.body.username + "'";
@@ -122,7 +136,19 @@ router.route('/pokemon_type')
 
     });
 
+router.route('/mypokemon_create')
+    .post(function(req, res) {
+        var q = "INSERT INTO myPokemon (pokeName, teamID) VALUES('"+req.body.pokeName+"', '"+req.body.teamID + "')";
+        console.log(q);
+        connection.query(q , function(err, rows, fields) {
+            if (!err){
+                res.json({pokemon: rows});
+            }
+            else
+                res.json({error: 'Error while performing Query.'});
+        });
 
+    });
 
 
 app.use('/api', router);
@@ -160,6 +186,13 @@ Get Pokemon by Type - POST - api/pokemon_type
 Args=[typeName]
 Returns empty array if type doesnt exist
 
+Create MyPokemon - POST - api/mypokemon_create
+Args=[pokeName, teamID]
+Returns sql updated information
+
+Change Team Name - PUT - api/update_team
+Args=[teamID, teamName]
+Returns sql update info
 
 
  */
