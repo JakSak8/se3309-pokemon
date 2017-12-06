@@ -6,14 +6,22 @@ export class LoginService {
 
   constructor(private http: Http) { }
 
-  private URL = "http//localhost:8081/api/";
 
+<<<<<<< HEAD
   signIn(nusername: String, npassword: String){
+=======
+  signin: any[];
+  signout: any[];
+
+
+  signIn(nusername: string, npassword: string) {
+>>>>>>> 4d344f42d3808f7d821139ae550c5982e36e72ca
     var body = {
       username: nusername,
       password: npassword
     }
-    return this.http.post(this.URL, body);
+    console.log(URL);
+    return this.http.post("/api/sign_in", body);
   }
 
   singUp(nusername: string, npassword: string, nemail: string, nname: string){
@@ -23,6 +31,6 @@ export class LoginService {
       email: nemail,
       name: nname
     }
-    return this.http.post(this.URL, body);
+    return this.http.post("/api/create_user", body);
   }
 }
