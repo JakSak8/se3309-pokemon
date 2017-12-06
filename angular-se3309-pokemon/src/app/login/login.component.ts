@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   }
 
   signIn(){
-      this.loginService.signIn().map(res => res.json());
+     //this.loginService.signIn().map(res => res.json());
   }
 
   
