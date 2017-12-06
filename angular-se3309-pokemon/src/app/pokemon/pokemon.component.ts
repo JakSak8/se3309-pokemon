@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { PokemonService } from '../pokemon.service';
-import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-pokemon',
@@ -11,24 +11,45 @@ import 'rxjs/add/operator/map'
 })
 export class PokemonComponent implements OnInit {
 
-  constructor(private http: Http, private pokemonService: PokemonService) { }
+  pokemons: any[];
+
+  pokeNames: string[];
+  typeNames: any[];
+  hitPointss: any[];
+  attacks: any[];
+  defenses: any[];
+  specialAttacks: any[];
+  specialDefenses: any[];
+  speeds: any[];
+
+  constructor(private http: Http, private pokemonService: PokemonService) { 
+
+  }
 
   ngOnInit() {
   }
 
   SearchPokemonName(pokemonName:string){
     return this.pokemonService.SearchPokemonName(pokemonName).subscribe(
-      data => console.log(data),
+      data => this.displayPokemon(data),
+      //data => console.log(data),
       err => console.log(err),
     );
+    
     
   }
 
   SearchPokemonType(pokeType:string){
     return this.pokemonService.SearchPokemonType(pokeType).subscribe(
-      data => console.log(data),
+      data => {this.displayPokemon(data);
+      },
       err => console.log(err),
     );
+
   }
 
+  displayPokemon(data){
+    this.pokemons = data.pokemon;
+    
+  }
 }

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PokemonService {
-
 
   constructor(private http: Http) { }
  
@@ -18,19 +18,17 @@ export class PokemonService {
   */
 
   SearchPokemonName(pokemonName:string) {
-    console.log('Name');
     var body = {
       pokeName: pokemonName
     }
-    return this.http.post("/api/pokemon_name", body);//.subscribe(data=> {console.log(data)});
+    return this.http.post("/api/pokemon_name", body).map(res=>res.json());//.subscribe(data=> {console.log(data)});  
   }
 
   SearchPokemonType(pokeType:string) {
-    console.log('Type');
     var body = {
       typeName: pokeType
     }
-    return this.http.post("/api/pokemon_type", body);//.subscribe(data => {console.log(data)});
+    return this.http.post("/api/pokemon_type", body).map(res=>res.json());//.subscribe(data => {console.log(data)});
   }
 
 }
