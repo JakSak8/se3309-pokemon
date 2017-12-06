@@ -1,7 +1,7 @@
 <h1>Pokemon Team Selector App</h1>
 
-<nav>
-  
+<nav *ngIf="isAuthenticated()">
+  <a routerLink="./home">Home</a>
 </nav>
 <router-outlet></router-outlet>
 

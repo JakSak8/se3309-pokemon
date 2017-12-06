@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login.service';
 import { Http } from '@angular/http'
+import {Router} from '@angular/router'
 import 'rxjs/add/operator/map'
 
 @Component({
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   signout: any[];
   signoutData: any[];
 
-  constructor(private loginService: LoginService, http: Http) { }
+  constructor(private loginService: LoginService, http: Http, private router: Router) { }
 
   ngOnInit() {
   }
@@ -24,17 +25,17 @@ export class LoginComponent implements OnInit {
 
   signIn(user: string, pass: string){
     this.loginService.signIn(user, pass).subscribe(
-      //ata => this.signInConfirmed(data),
-      data => console.log(data),
+      data => this.signInConfirmed(data),
       err => console.log(err),
     );
   }
 
-  // signInConfirmed(data){
-  //   if data.[1] == true;
-  //   for (var i = 0; i < this.imageData.length; i++){
-  //     this.images.push(this.imageData[i].links[0].href);
-  //     this.imageName.push(this.imageData[i].data[0].title);
-  //   };
-  // }
+  signInConfirmed(data){
+    if (data._body[0] == !null) {
+      this.loginService.authenticate = true;
+      return this.router.navigate(['../home'])
+    } else {
+      alert("please create an account");
+    }
+  }
 }
