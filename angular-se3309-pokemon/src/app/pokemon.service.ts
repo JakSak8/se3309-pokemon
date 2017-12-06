@@ -21,14 +21,14 @@ export class PokemonService {
     var body = {
       pokeName: pokemonName
     }
-    return this.http.post("/api/pokemon_name", body).map(res=>res.json());//.subscribe(data=> {console.log(data)});  
+    return this.http.post("/api/pokemon_name", body).map(res=>res.json());
   }
 
   SearchPokemonType(pokeType:string) {
     var body = {
       typeName: pokeType
     }
-    return this.http.post("/api/pokemon_type", body).map(res=>res.json());//.subscribe(data => {console.log(data)});
+    return this.http.post("/api/pokemon_type", body).map(res=>res.json());
   }
 
 }
