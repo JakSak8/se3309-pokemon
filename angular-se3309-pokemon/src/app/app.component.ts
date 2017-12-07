@@ -14,12 +14,16 @@ export class AppComponent {
   constructor(private usernameService: UsernameService){}
 
   isAuthenticated(): Boolean{
-    console.log(this.usernameService.getAuthentication());
+    
     if (this.usernameService.getAuthentication() == "true"){
       return true;
     } else {
       return false;
     }
+  }
+
+  LogOut(){
+    this.usernameService.logout();
   }
 
 }

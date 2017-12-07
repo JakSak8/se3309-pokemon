@@ -15,7 +15,6 @@ export class LoginService {
       username: nusername,
       password: npassword
     }
-    console.log(URL);
     return this.http.post("/api/sign_in", body).map(res => res.json());
   }
 

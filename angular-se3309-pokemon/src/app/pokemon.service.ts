@@ -31,4 +31,8 @@ export class PokemonService {
     return this.http.post("/api/pokemon_type", body).map(res=>res.json());
   }
 
+  AllPokemon(){
+    return this.http.get("api/pokemon").map(res=>res.json());
+  }
+
 }

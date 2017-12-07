@@ -31,6 +31,19 @@ export class TeamComponent implements OnInit {
     alert("Your team has been created!");
   }
 
+  UpdateTeam(teamIDs:string, newTeamName:string){
+    return this.teamService.UpdateTeam(teamIDs,newTeamName).subscribe(
+      data => {this.UpdateTeamConfirm(data);
+      console.log(data)},
+      err => console.log(err),
+    );
+  
+  }
+
+  UpdateTeamConfirm(data){
+    alert("Your team has been updated!");
+  }
+
   GetTeams(){
     return this.teamService.GetTeams(localStorage.getItem(USER_NAME)).subscribe(
       data => {this.ShowTeams(data);

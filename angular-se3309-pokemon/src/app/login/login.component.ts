@@ -24,18 +24,14 @@ export class LoginComponent implements OnInit {
   }
 
   signIn(user: string, pass: string){
-    console.log(user);
-    console.log(pass);
     this.loginService.signIn(user, pass).subscribe(
       data => this.signInConfirmed(data, user),
-      //data => console.log(data.user[0]),
       err => console.log(err),
     );
   }
 
 
   signInConfirmed(data, username: string){
-    console.log(data);
     this.signin = data.user;
     if (this.signin[0].length != 0) {
       this.usernameService.setAuthentication("true");
@@ -48,7 +44,6 @@ export class LoginComponent implements OnInit {
 
   signup(user: string, pass: string, nemail: string, name: string){
     this.loginService.signUp(user, pass, name, nemail).subscribe(
-      //data => this.signInConfirmed(data),
       data => this.signupConfirmed(data),
       err => console.log(err),
     );

@@ -22,7 +22,7 @@ export class PokemonComponent implements OnInit {
 
   SearchPokemonName(pokemonName:string){
     return this.pokemonService.SearchPokemonName(pokemonName).subscribe(
-      data => this.DisplayPokemon(data),
+      data => {this.DisplayPokemon(data)},
       err => console.log(err),
     );
     
@@ -31,11 +31,17 @@ export class PokemonComponent implements OnInit {
 
   SearchPokemonType(pokeType:string){
     return this.pokemonService.SearchPokemonType(pokeType).subscribe(
-      data => {this.DisplayPokemon(data);
-      console.log(data)},
+      data => {this.DisplayPokemon(data)},
       err => console.log(err),
     );
 
+  }
+
+  AllPokemon(){
+    return this.pokemonService.AllPokemon().subscribe(
+      data => {this.DisplayPokemon(data)},
+      err => console.log(err),
+    );
   }
 
   DisplayPokemon(data){

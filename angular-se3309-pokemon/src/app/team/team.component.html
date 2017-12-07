@@ -1,11 +1,17 @@
 <h1> Here you can manage your teams! </h1>
 <div>
-  <h4>Create a new pokemon team</h4>
-  Team Name<input type="text" #teamName />
+  <h3>Create a new pokemon team</h3>
+  Team Name <input type="text" #teamName />
   <button (click)="CreateTeam(teamName.value)">Create Team</button>
 </div>
+<h3>Change the names of your teams by their IDs</h3>
+<div class="container">
+  Team ID <input #teamIDs ><br><br>
+  New Team Name <input #newTeamName ><br><br>
+  <button (click)="UpdateTeam(teamIDs.value, newTeamName.value)">Update Team</button>
+</div>
 <div>
-  <h4>Find your Pokemon teams by username</h4>
+  <h3>Find your Pokemon teams by username</h3>
   <button (click)="GetTeams()">Get My Teams</button>
 </div>
 <br><br>

@@ -17,6 +17,15 @@ export class TeamService {
         
   }
 
+  UpdateTeam(teamIDs:string, newTeamName:string){
+    var body = {
+        teamID: teamIDs,
+        teamName: newTeamName   
+    }
+    return this.http.put("/api/update_team", body);
+        
+  }
+
   GetTeams(userName:string){
     var body = {
       username: userName

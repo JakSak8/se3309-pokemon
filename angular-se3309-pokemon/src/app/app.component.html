@@ -1,9 +1,11 @@
 <h1>Pokemon Team Creator App</h1>
 
-<nav >
+<nav *ngIf="this.isAuthenticated()">
+  <button class="logout" (click)="LogOut()">Log Out</button>
   <a routerLink="./home">Home</a>
   <a routerLink="./pokemon">Pokemon</a>
   <a routerLink="./team">Team</a>
+  
 </nav>
 <router-outlet></router-outlet>
 

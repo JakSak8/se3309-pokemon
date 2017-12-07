@@ -80,7 +80,7 @@ router.route('/create_team')
 
 router.route('/update_team')
     .put(function(req, res) {
-        var q = "UPDATE team SET teamName = '"+ req.body.teamName +"' WHERE teamID="+req.body.teamID;
+        var q = "UPDATE team SET teamName = '" + req.body.teamName + "' WHERE teamID = '" + req.body.teamID + "'";
         console.log(q);
         connection.query(q , function(err, rows, fields) {
             if (!err){
