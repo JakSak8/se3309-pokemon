@@ -6,7 +6,9 @@
   <button (click)="CreateTeam(teamName.value)">Create Team</button>
 </div>
 <br>
+
 <select [(ngModel)]="selectedTeam"><option *ngFor="let team of teams" value="{{team.id}}">{{team.name}}</option></select>
+
 <h3>Change the names of your teams by their IDs</h3>
 <div class="container">
   Team ID <input #teamIDs ><br>

@@ -15,6 +15,7 @@ import 'rxjs/add/operator/map'
 export class TeamComponent implements OnInit {
 
   teams: any[];
+  selectedTeam;
 
   constructor(private http: Http, private teamService: TeamService) { }
 
@@ -30,7 +31,7 @@ export class TeamComponent implements OnInit {
   }
 
   CreateTeamConfirm(data){
-    alert("Your team has been created!");
+    alert("Your team has been created");
   }
 
   UpdateTeam(teamIDs:string, newTeamName:string){
@@ -47,13 +48,13 @@ export class TeamComponent implements OnInit {
 
   AddPokemon(teamIDs:string, newPokeName:string){
     return this.teamService.AddPokemon(teamIDs,newPokeName).subscribe(
-      data => {this.AddPokemonConfirm(data)},
+      data => {this.AddPokemonConfirm(teamIDs,data)},
       err => console.log(err),
     );
   }
 
-  AddPokemonConfirm(data){
-    alert("Your Pokemon has been added!")
+  AddPokemonConfirm(teamID:string, data){
+    alert("Your Pokemon has been added to team " + teamID);
   }
 
   GetTeams(){
