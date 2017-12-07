@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
     console.log(data);
     this.signin = data.user;
     if (this.signin[0].length != 0) {
-      this.usernameService.setAuthentication(true);
+      this.usernameService.setAuthentication("true");
       this.usernameService.setUserName(username);
       return this.router.navigate(['../home'])
     } else {

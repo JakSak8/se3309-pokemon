@@ -15,7 +15,7 @@ export class AppComponent {
 
   isAuthenticated(): Boolean{
     console.log(this.usernameService.getAuthentication());
-    if (this.usernameService.getAuthentication() == true){
+    if (this.usernameService.getAuthentication() == "true"){
       return true;
     } else {
       return false;

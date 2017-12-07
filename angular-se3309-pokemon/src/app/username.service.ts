@@ -9,13 +9,13 @@ export class UsernameService {
 
   constructor() { }
 
-  private username: String;
-  private authenticate: Boolean;
+  private username: string;
+  private authenticate: string;
   
   
   
   //Changed below methods to use local storage.
-  setAuthentication(auth: Boolean){
+  setAuthentication(auth: string){
       localStorage.setItem(AUTH, auth);
   }
 
@@ -23,8 +23,8 @@ export class UsernameService {
     return localStorage.getItem(AUTH);
   }
   
-  setUserName(name: String){
-    localStorage.setItem(USER_NAME, user);
+  setUserName(name: string){
+    localStorage.setItem(USER_NAME, name);
   }
 
   getUserName(){

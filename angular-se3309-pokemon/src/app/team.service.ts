@@ -8,18 +8,18 @@ export class TeamService {
 
   constructor(private http: Http) { }
 
-  CreateTeam(teamname:string){
+  CreateTeam(teamname:string, userName:string){
     var body = {
         teamName: teamname,
-        username: "jaksak8"
+        username: userName
     }
     return this.http.post("/api/create_team", body);
         
   }
 
-  GetTeams(){
+  GetTeams(userName:string){
     var body = {
-      username: "jaksak8"
+      username: userName
     }
     return this.http.post("/api/show_teams", body).map(res=>res.json());
   }
