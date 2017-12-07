@@ -13,15 +13,6 @@ export class PokemonComponent implements OnInit {
 
   pokemons: any[];
 
-  pokeNames: string[];
-  typeNames: any[];
-  hitPointss: any[];
-  attacks: any[];
-  defenses: any[];
-  specialAttacks: any[];
-  specialDefenses: any[];
-  speeds: any[];
-
   constructor(private http: Http, private pokemonService: PokemonService) { 
 
   }
@@ -31,7 +22,7 @@ export class PokemonComponent implements OnInit {
 
   SearchPokemonName(pokemonName:string){
     return this.pokemonService.SearchPokemonName(pokemonName).subscribe(
-      data => this.displayPokemon(data),
+      data => this.DisplayPokemon(data),
       err => console.log(err),
     );
     
@@ -40,14 +31,14 @@ export class PokemonComponent implements OnInit {
 
   SearchPokemonType(pokeType:string){
     return this.pokemonService.SearchPokemonType(pokeType).subscribe(
-      data => {this.displayPokemon(data);
-      },
+      data => {this.DisplayPokemon(data);
+      console.log(data)},
       err => console.log(err),
     );
 
   }
 
-  displayPokemon(data){
+  DisplayPokemon(data){
     this.pokemons = data.pokemon;
     
   }

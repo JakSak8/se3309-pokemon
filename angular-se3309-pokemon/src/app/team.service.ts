@@ -10,7 +10,8 @@ export class TeamService {
 
   CreateTeam(teamname:string){
     var body = {
-        teamName: teamname
+        teamName: teamname,
+        username: "jaksak8"
     }
     return this.http.post("/api/create_team", body);
         
@@ -18,13 +19,9 @@ export class TeamService {
 
   GetTeams(){
     var body = {
-      
+      username: "jaksak8"
     }
-    return this.http.post("/api/show_team", body).map(res=>res.json());
+    return this.http.post("/api/show_teams", body).map(res=>res.json());
   }
 
-
-  getTeam(user: string){
-    
-  }
 }
