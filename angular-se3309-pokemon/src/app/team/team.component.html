@@ -2,11 +2,11 @@
 <div>
   <h4>Create a new pokemon team</h4>
   Team Name<input type="text" #teamName />
-  <button (click)="CreateTeam(teamName.value)"></button>
+  <button (click)="CreateTeam(teamName.value)">Create Team</button>
 </div>
 <div>
   <h4>Find your Pokemon teams by username</h4>
-  <button (click)="GetTeams()">Get Teams</button>
+  <button (click)="GetTeams()">Get My Teams</button>
 </div>
 <br><br>
 <table>
@@ -15,9 +15,9 @@
   <th>Pokemon Name</th>
   <th>Team ID</th>
 </tr>
-<tr *ngFor="let pokemon of pokemons">
-  <td>{{pokemon.pokeName}}</td>
-  <td>{{pokemon.pokeNumber}}</td>
-  <td>{{team.teamID}}</td>
+<tr *ngFor="let team of teams">
+  <td>{{teams.pokeID}}</td>
+  <td>{{teams.pokeName}}</td>
+  <td>{{teams.teamID}}</td>
 </tr>
 </table>

@@ -13,10 +13,6 @@ export class TeamComponent implements OnInit {
 
   teams: any[];
 
-  pokeID: any[];
-  pokeName: any[];
-  teamID: any[];
-
   constructor(private http: Http, private teamService: TeamService) { }
 
   ngOnInit() {
@@ -36,13 +32,15 @@ export class TeamComponent implements OnInit {
 
   GetTeams(){
     return this.teamService.GetTeams().subscribe(
-      data => this.ShowTeams(data),
+      data => {this.ShowTeams(data);
+        console.log(data)},
       err => console.log(err),
     );
   }
 
   ShowTeams(data){
-    this.teams = data.team;
+    this.teams = data.teams;
+ 
   }
 
 }
