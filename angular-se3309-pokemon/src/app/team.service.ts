@@ -26,6 +26,14 @@ export class TeamService {
         
   }
 
+  AddPokemon(teamIDs:string, newPokeName:string){
+    var body = {
+      teamID: teamIDs,
+      pokeName: newPokeName
+    }
+    return this.http.post("/api/mypokemon_create",body);
+  }
+
   GetTeams(userName:string){
     var body = {
       username: userName

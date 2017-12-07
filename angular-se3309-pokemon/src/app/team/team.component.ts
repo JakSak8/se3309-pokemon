@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Headers } from '@angular/http';
+import { NgModel } from '@angular/forms';
 import { TeamService } from '../team.service';
-import 'rxjs/add/operator/map'
 import { USER_NAME } from '../username.service';
+import 'rxjs/add/operator/map'
+
 
 @Component({
   selector: 'app-team',
@@ -33,8 +35,7 @@ export class TeamComponent implements OnInit {
 
   UpdateTeam(teamIDs:string, newTeamName:string){
     return this.teamService.UpdateTeam(teamIDs,newTeamName).subscribe(
-      data => {this.UpdateTeamConfirm(data);
-      console.log(data)},
+      data => {this.UpdateTeamConfirm(data)},
       err => console.log(err),
     );
   
@@ -42,6 +43,17 @@ export class TeamComponent implements OnInit {
 
   UpdateTeamConfirm(data){
     alert("Your team has been updated!");
+  }
+
+  AddPokemon(teamIDs:string, newPokeName:string){
+    return this.teamService.AddPokemon(teamIDs,newPokeName).subscribe(
+      data => {this.AddPokemonConfirm(data)},
+      err => console.log(err),
+    );
+  }
+
+  AddPokemonConfirm(data){
+    alert("Your Pokemon has been added!")
   }
 
   GetTeams(){

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UsernameService } from './username.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { UsernameService } from './username.service';
 export class AppComponent {
   title = 'app';
 
-  constructor(private usernameService: UsernameService){}
+  constructor(private router: Router, private usernameService: UsernameService){}
 
   isAuthenticated(): Boolean{
     
@@ -24,6 +25,7 @@ export class AppComponent {
 
   LogOut(){
     this.usernameService.logout();
+    this.router.navigate(['../login'])
   }
 
 }

@@ -1,20 +1,31 @@
+<body>
 <h1> Here you can manage your teams! </h1>
 <div>
   <h3>Create a new pokemon team</h3>
   Team Name <input type="text" #teamName />
   <button (click)="CreateTeam(teamName.value)">Create Team</button>
 </div>
+<br>
+<select [(ngModel)]="selectedTeam"><option *ngFor="let team of teams" value="{{team.id}}">{{team.name}}</option></select>
 <h3>Change the names of your teams by their IDs</h3>
 <div class="container">
-  Team ID <input #teamIDs ><br><br>
-  New Team Name <input #newTeamName ><br><br>
+  Team ID <input #teamIDs ><br>
+  New Team Name <input #newTeamName ><br>
   <button (click)="UpdateTeam(teamIDs.value, newTeamName.value)">Update Team</button>
 </div>
+<br>
+<h3>Add Pokemon by their names to your teams</h3>
+<div class="container">
+    Team ID <input #teamIDs ><br>
+    Pokemon to Add <input #newPokeName ><br>
+    <button (click)="AddPokemon(teamIDs.value, newPokeName.value)">Add Pokemon</button>
+  </div>
+<br>
 <div>
   <h3>Find your Pokemon teams by username</h3>
   <button (click)="GetTeams()">Get My Teams</button>
 </div>
-<br><br>
+<br>
 <table>
 <tr>
   <th>Pokemon ID</th>
@@ -27,3 +38,7 @@
   <td>{{team.teamID}}</td>
 </tr>
 </table>
+
+<link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Quantico" rel="stylesheet">
+
+</body>
