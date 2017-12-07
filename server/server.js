@@ -106,6 +106,20 @@ router.route('/show_teams')
 
     });
 
+    router.route('/teams')
+    .post(function(req, res) {
+        var q = "SELECT * FROM team WHERE team.userID = '" +req.body.username + "'";
+        console.log(q);
+        connection.query(q , function(err, rows, fields) {
+            if (!err){
+                res.json({team: rows});
+            }
+            else
+                res.json({error: 'Error while performing Query.'});
+        });
+
+    });
+
 router.route('/pokemon')
     .get(function(req, res) {
         var q = "SELECT * FROM pokemon";

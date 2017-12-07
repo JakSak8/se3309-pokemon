@@ -15,11 +15,14 @@ import 'rxjs/add/operator/map'
 export class TeamComponent implements OnInit {
 
   teams: any[];
-  selectedTeam;
+  _teams: any[];
+  selectedTeam1;
+  selectedTeam2;
 
   constructor(private http: Http, private teamService: TeamService) { }
 
   ngOnInit() {
+    this.refresh();
   }
 
   CreateTeam(teamName:string){
@@ -32,6 +35,7 @@ export class TeamComponent implements OnInit {
 
   CreateTeamConfirm(data){
     alert("Your team has been created");
+    this.refresh();
   }
 
   UpdateTeam(teamIDs:string, newTeamName:string){
@@ -44,6 +48,7 @@ export class TeamComponent implements OnInit {
 
   UpdateTeamConfirm(data){
     alert("Your team has been updated!");
+    this.refresh();
   }
 
   AddPokemon(teamIDs:string, newPokeName:string){
@@ -55,6 +60,7 @@ export class TeamComponent implements OnInit {
 
   AddPokemonConfirm(teamID:string, data){
     alert("Your Pokemon has been added to team " + teamID);
+    this.refresh();
   }
 
   GetTeams(){
@@ -65,9 +71,25 @@ export class TeamComponent implements OnInit {
     );
   }
 
+  Teams(){
+    return this.teamService.Teams(localStorage.getItem(USER_NAME)).subscribe(
+      data => {this.Show_Teams(data);
+        console.log(data)},
+      err => console.log(err),
+    );
+  }
+
   ShowTeams(data){
     this.teams = data.teams;
- 
+  }
+
+  Show_Teams(data){
+    this._teams = data.team;
+  }
+
+  refresh(){
+    this.Teams();
+    this.GetTeams();   
   }
 
 }

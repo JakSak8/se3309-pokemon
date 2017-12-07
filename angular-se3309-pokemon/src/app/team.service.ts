@@ -41,4 +41,11 @@ export class TeamService {
     return this.http.post("/api/show_teams", body).map(res=>res.json());
   }
 
+  Teams(userName:string){
+    var body = {
+      username: userName
+    }
+    return this.http.post("/api/teams", body).map(res=>res.json());
+  }
+
 }
